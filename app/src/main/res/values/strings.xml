@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HueTastic</string>
+
+    <string name="title_activity_find_hue_bridge">FindHueBridgeActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

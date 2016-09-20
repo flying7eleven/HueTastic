@@ -1,5 +1,3 @@
 <resources>
-    <string name="app_name">HueTastic</string>
-
-    <string name="title_activity_find_hue_bridge">FindHueBridgeActivity</string>
+    <string name="app_name" translatable="false">HueTastic</string>
 </resources>

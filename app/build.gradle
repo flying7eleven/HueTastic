@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "biz.huetz.apps.huetastic"
-        minSdkVersion 24
-        targetSdkVersion 24
+        minSdkVersion 23
+        targetSdkVersion 23
         versionCode 1
         versionName "0.1"
     }

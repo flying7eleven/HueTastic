@@ -7,6 +7,7 @@ HueTastic is a small hobby project to operate Hue bridges / devices in your loca
 To operate the Hue bridges, the official [API][1] is used.
 
 ## Progress
+The first available version of the app should very rudimental and just provide functions for finding a Hue bridge as well as managing the already added lightbulbs. From this stage, all functions which are required for a daily use are added in small increments.
 
 ### Ideas
 One idea would be to handle light colors like in [Huetro][4]. You can upload an image (which also is the scene image) and place color pickers onto the image. These color pickers also represent the single lights and their color.

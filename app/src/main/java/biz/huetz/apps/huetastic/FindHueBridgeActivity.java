@@ -1,5 +1,6 @@
 package biz.huetz.apps.huetastic;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -64,6 +65,9 @@ public class FindHueBridgeActivity extends AppCompatActivity {
 				public void run() {
 					int numberOfFoundAccessPoints = mPhilipsHueSDK.getAccessPointsFound().size();
 					mLookingForBridges.setText( getResources().getQuantityString( R.plurals.searching_hue_bridges, numberOfFoundAccessPoints, numberOfFoundAccessPoints ) );
+
+					Intent intent = new Intent( FindHueBridgeActivity.this, ConnectToBridgeActivity.class );
+					startActivity( intent );
 				}
 			} );
 		}

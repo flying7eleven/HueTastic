@@ -18,7 +18,15 @@ One idea would be to handle light colors like in [Huetro][4]. You can upload an 
 ### First version
 You can find the planed features for the first version of the app in the [project plan][3].
 
+## Source references
+The app was developed using 3rd-party assets. This section describes which artist developed which asset and where it was used.
+
+| Resource type | Artist      | Description                                          | Source      |
+|---------------|-------------|------------------------------------------------------|-------------|
+| Video         | Sean Hobson | Video in the screen where the bridges are discovered | [Flickr][5] |
+
 [1]: http://www.developers.meethue.com/
 [2]: https://www.huetz.biz/apps/huetastic
 [3]: https://github.com/thuetz/HueTastic/projects/1
 [4]: https://www.microsoft.com/en-us/store/p/huetro-for-hue/9wzdncrfjj3t
+[5]: https://www.flickr.com/photos/seanhobson/4083815314

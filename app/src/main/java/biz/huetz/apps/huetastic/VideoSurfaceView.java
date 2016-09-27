@@ -45,7 +45,7 @@ public class VideoSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 		if( this.isInEditMode() ) {
 			return;
 		}
-		AssetFileDescriptor afd = getResources().openRawResourceFd( R.raw.bridge_search );
+		AssetFileDescriptor afd = null; //getResources().openRawResourceFd( R.raw.bridge_search );
 		try {
 			if( !hasStarted ) {
 				hasStarted = true;

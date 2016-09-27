@@ -17,10 +17,6 @@
 		<item quantity="other">Found %d bridges…</item>
 	</plurals>
 
-	<string name="title_activity_connect_to_bridge">Bridge address</string>
-
-	<string name="button_search_again_for_bridges">Search again</string>
-	<string name="button_cancel_bridge_connection_process">Cancel</string>
 	<string name="button_connect_to_bridge">Connect</string>
 	<string name="text_bridges_found_please_select">We found %d Philips Hue bridges in your
 	network. Please select the bridge you want to connect to and continue connecting.</string>

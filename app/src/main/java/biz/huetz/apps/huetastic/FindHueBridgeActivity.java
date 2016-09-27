@@ -1,6 +1,5 @@
 package biz.huetz.apps.huetastic;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.philips.lighting.hue.sdk.PHAccessPoint;
@@ -24,8 +25,11 @@ import java.util.List;
 public class FindHueBridgeActivity extends AppCompatActivity {
 	private static final String TAG = "FindHueBridgeActivity";
 	public static final int DELAY_SEARCH_START_MILLIS = 600;
-	private View mContentView;
+	private View mDiscoverBridgesView;
+	private View mSelectBridgeView;
 	private TextView mLookingForBridges;
+	private TextView mFoundBridges;
+	private RadioGroup mBridgeConnectionRadioGroup;
 	private PHHueSDK mPhilipsHueSDK;
 
 	private final Handler mSearchForHueBridgesHandler = new Handler();
@@ -63,11 +67,24 @@ public class FindHueBridgeActivity extends AppCompatActivity {
 			runOnUiThread( new Runnable() {
 				@Override
 				public void run() {
-					int numberOfFoundAccessPoints = mPhilipsHueSDK.getAccessPointsFound().size();
+					List< PHAccessPoint > apList = mPhilipsHueSDK.getAccessPointsFound();
+					int numberOfFoundAccessPoints = apList.size();
 					mLookingForBridges.setText( getResources().getQuantityString( R.plurals.searching_hue_bridges, numberOfFoundAccessPoints, numberOfFoundAccessPoints ) );
+					mFoundBridges.setText( String.format( getResources().getString( R.string.text_bridges_found_please_select ), numberOfFoundAccessPoints ) );
 
-					Intent intent = new Intent( FindHueBridgeActivity.this, ConnectToBridgeActivity.class );
-					startActivity( intent );
+					boolean alreadyOneSelected = false;
+					mBridgeConnectionRadioGroup.removeAllViews();
+					for( PHAccessPoint currentAccessPoint : apList ) {
+						RadioButton radioButton = new RadioButton( FindHueBridgeActivity.this );
+						radioButton.setText( currentAccessPoint.getIpAddress() );
+						radioButton.setTextColor( getResources().getColor( R.color.brightText, null ) );
+						radioButton.setSelected( !alreadyOneSelected );
+						alreadyOneSelected = true;
+						mBridgeConnectionRadioGroup.addView( radioButton );
+					}
+
+					mDiscoverBridgesView.setVisibility( View.GONE );
+					mSelectBridgeView.setVisibility( View.VISIBLE );
 				}
 			} );
 		}
@@ -110,11 +127,18 @@ public class FindHueBridgeActivity extends AppCompatActivity {
 		mPhilipsHueSDK.setDeviceName( Build.MODEL );
 		mPhilipsHueSDK.getNotificationManager().registerSDKListener( mPhilipsHueListener );
 
-		mContentView = findViewById( R.id.fullscreen_content_controls );
-		mContentView.setSystemUiVisibility( View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION );
+		mDiscoverBridgesView = findViewById( R.id.initial_bridge_discovery_view );
+		mDiscoverBridgesView.setSystemUiVisibility( View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION );
+
+		mSelectBridgeView = findViewById( R.id.select_bridge_to_connect_to );
+		mSelectBridgeView.setSystemUiVisibility( View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION );
 
 		mLookingForBridges = (TextView) findViewById( R.id.looking_for_bridges_and_found_x_bridges );
 		mLookingForBridges.setText( getResources().getQuantityString( R.plurals.searching_hue_bridges, 0, 0 ) );
+
+		mFoundBridges = (TextView) findViewById( R.id.intro_x_bridges_found_please_select );
+
+		mBridgeConnectionRadioGroup = (RadioGroup) findViewById( R.id.bridge_connection_radio_group );
 
 		mSearchForHueBridgesHandler.postDelayed( mSearchForHueBridges, DELAY_SEARCH_START_MILLIS );
 	}

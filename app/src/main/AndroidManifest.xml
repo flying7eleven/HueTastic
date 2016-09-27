@@ -31,9 +31,6 @@
 				android:name="android.support.PARENT_ACTIVITY"
 				android:value="biz.huetz.apps.huetastic.MainActivity" />
 		</activity>
-		<activity
-			android:name=".ConnectToBridgeActivity"
-			android:theme="@android:style/Theme.Material.Dialog"></activity>
 	</application>
 
 </manifest>

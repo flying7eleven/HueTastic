@@ -6,3 +6,6 @@
 .DS_Store
 /build
 /captures
+3rdparty/huelocalsdk.jar
+3rdparty/huesdkresources.jar
+

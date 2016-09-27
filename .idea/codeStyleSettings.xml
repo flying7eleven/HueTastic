@@ -69,9 +69,7 @@
           </extensions>
         </Objective-C-extensions>
         <XML>
-          <option name="XML_KEEP_LINE_BREAKS" value="false" />
-          <option name="XML_ALIGN_ATTRIBUTES" value="false" />
-          <option name="XML_SPACE_INSIDE_EMPTY_TAG" value="true" />
+          <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
         </XML>
         <codeStyleSettings language="JAVA">
           <option name="KEEP_LINE_BREAKS" value="false" />
@@ -96,8 +94,6 @@
           <option name="SPACE_BEFORE_CATCH_PARENTHESES" value="false" />
           <option name="SPACE_BEFORE_SWITCH_PARENTHESES" value="false" />
           <option name="SPACE_BEFORE_SYNCHRONIZED_PARENTHESES" value="false" />
-          <option name="METHOD_ANNOTATION_WRAP" value="0" />
-          <option name="CLASS_ANNOTATION_WRAP" value="0" />
           <option name="FIELD_ANNOTATION_WRAP" value="0" />
           <option name="SPACE_WITHIN_ANNOTATION_PARENTHESES" value="true" />
           <indentOptions>

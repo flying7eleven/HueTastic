@@ -1,18 +1,18 @@
 <resources>
-    <string name="app_name" translatable="false">HueTastic</string>
-    <string name="title_activity_main">HueTastic</string>
+	<string name="app_name" translatable="false">HueTastic</string>
+	<string name="title_activity_main">HueTastic</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+	<string name="navigation_drawer_open">Open navigation drawer</string>
+	<string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+	<string name="action_settings">Settings</string>
 
-    <string name="title_activity_find_hue_bridge">FindHueBridgeActivity</string>
-    <string name="searching_hue_bridges_title">Looking for Philips Hue bridges…</string>
+	<string name="title_activity_find_hue_bridge">FindHueBridgeActivity</string>
+	<string name="searching_hue_bridges_title">Looking for Philips Hue bridges…</string>
 
-    <plurals name="searching_hue_bridges">
-        <item quantity="zero">Looking for bridges…</item>
-        <item quantity="one">Found one bridge…</item>
-        <item quantity="other">Found %d bridges…</item>
-    </plurals>
+	<plurals name="searching_hue_bridges">
+		<item quantity="zero">Looking for bridges…</item>
+		<item quantity="one">Found one bridge…</item>
+		<item quantity="other">Found %d bridges…</item>
+	</plurals>
 </resources>

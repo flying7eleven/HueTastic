@@ -1,6 +1,9 @@
 # HueTastic
 HueTastic is a small hobby project to operate Hue bridges / devices in your local network. It started mid-2016 due to the lack of apps with a reasonable good UI. The goal of this project is to have a good integration into the operating system and a good usability.
 
+## How to build
+To build the app yourself, you have to make sure that you have developer access to the [Philips Hue Developer Program][1]. There you can download the Java/Android SDK and place the corresponding jar-files in the ```3rdparty``` folder of the source tree. After doing that, you can build the app using ```gradle```.
+
 ## Techical
 
 ### API
